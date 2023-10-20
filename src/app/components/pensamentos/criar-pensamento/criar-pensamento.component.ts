@@ -6,9 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./criar-pensamento.component.css'],
 })
 export class CriarPensamentoComponent implements OnInit {
+
+  // Utilizamos abaixo o decorator @input() para avisar que agora este componente vai receber informações do componente pai.
   pensamento = {
     id: '1',
-    conteudo: 'Aprendendo Angular',
+    conteudo: 'Estudando Angular',
     autoria: 'Dev',
     modelo: 'modelo1',
   };
