@@ -1,0 +1,22 @@
+{
+  "pensamentos": [
+    {
+      "id": 1,
+      "conteudo": "Estamos aqui estudando Angular",
+      "autoria": "Rodrigo Marques",
+      "modelo": "modelo1"
+    },
+    {
+      "id": 2,
+      "conteudo": "Angular na Aluna",
+      "autoria": "Rodrigo Marques",
+      "modelo": "modelo2"
+    },
+    {
+      "id": 1,
+      "conteudo": "#programação",
+      "autoria": "Rodrigo Marques",
+      "modelo": "modelo3"
+    }
+  ]
+}
