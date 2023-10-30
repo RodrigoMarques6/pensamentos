@@ -1,14 +1,8 @@
 {
   "pensamentos": [
     {
-      "id": 1,
-      "conteudo": "Estamos aqui estudando Angular",
-      "autoria": "Rodrigo Marques",
-      "modelo": "modelo1"
-    },
-    {
-      "conteudo": "Pensamento sobre Angular",
-      "autoria": "Rodrigo Marques",
+      "conteudo": "Mais um pensamento",
+      "autoria": "Rodrigo de novo",
       "modelo": "modelo1",
       "id": 2
     }
