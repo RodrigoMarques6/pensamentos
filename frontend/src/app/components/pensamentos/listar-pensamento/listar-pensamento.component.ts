@@ -11,11 +11,13 @@ export class ListarPensamentoComponent implements OnInit {
   // Utilizando ngFor:
   listaPensamentos: Pensamento[] = [];
 
-  // Vamos consumir o serviço criado agora no constructor:
+  // Após a criação do método listar(), no service, vamos consumir este serviço agora no constructor, injetando o PensamentoService:
+  // Após a injeção do service, poderei ter acesso a todos os métodos utilizados no service. 
 
   constructor(private service: PensamentoService) {}
 
   // Injetamos o pensamento service acima, no constructor para conseguir consumir.
+  // Queremos que essa lógica seja executada assim que o componente for carregado. Para isto, utilizamos o ngOnInit.
 
   ngOnInit(): void {
     this.service.listar().subscribe((listaPensamentos) => {

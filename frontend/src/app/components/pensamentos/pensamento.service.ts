@@ -18,10 +18,15 @@ export class PensamentoService {
   }
 
   // Explicando: O método listar() é um observable que vai retornar uma lista de pensamentos.
+  // Após criação do método listar(), vamos no componente de listagem para consumir este serviço criado
+
+  // Agora vamos adicionar um método para a criação de um pensamento:
 
   criar(pensamento: Pensamento): Observable<Pensamento> {
     return this.httpClient.post<Pensamento>(this.url, pensamento);
   }
+
+  // Após o método de criar pensamento acima, vamos no componente de criar pensamento para consumir este serviço
 
   editar(pensamento: Pensamento): Observable<Pensamento> {
     const url = `${this.url}/${pensamento.id}`

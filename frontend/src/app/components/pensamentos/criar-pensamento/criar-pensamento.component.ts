@@ -16,12 +16,15 @@ export class CriarPensamentoComponent implements OnInit {
     modelo: 'modelo1',
   };
 
+  // Utilizamos o constructor para injetar o serviço a ser consumido, e ainda injetar as rotas para utilizar nos métodos criarPensamento() e cancelar()
+
   constructor(private service: PensamentoService, private router: Router) {}
 
   ngOnInit(): void {}
 
   criarPensamento() {
     this.service.criar(this.pensamento).subscribe();
+    // Relembrando que o subscribe é um método que fica aguardando uma resposta para avisar assim que obver 
     this.router.navigate(['/listarPensamento']);
   }
 
