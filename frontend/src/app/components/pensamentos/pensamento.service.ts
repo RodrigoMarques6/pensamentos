@@ -22,6 +22,11 @@ export class PensamentoService {
     return this.httpClient.post<Pensamento>(this.url, pensamento);
   }
 
+  editar(pensamento: Pensamento): Observable<Pensamento> {
+    const url = `${this.url}/${pensamento.id}`
+    return this.httpClient.put<Pensamento>(url, pensamento)
+  }
+
   excluir(id: number): Observable<Pensamento> {
     const url = `${this.url}/${id}`;
     return this.httpClient.delete<Pensamento>(url)
