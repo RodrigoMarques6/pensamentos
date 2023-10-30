@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class PensamentoService {
   private readonly url = 'http://localhost:3000/pensamentos';
+  // readonly significa que posso atribuir um valor a uma propriedade em sua inicialização e esta não poderá ser modificada posteriormente. Em resumo, utilizamos com o intuito de após iniciar, não modificar mais.
 
   constructor(private httpClient: HttpClient) {}
 
