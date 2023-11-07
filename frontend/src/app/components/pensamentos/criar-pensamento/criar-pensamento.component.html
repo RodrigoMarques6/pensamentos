@@ -12,7 +12,10 @@
       placeholder="Digite um pensamento"
     />
 
-    <div class="mensagem__erro" *ngIf="formulario.get('conteudo')?.errors?.['required']  && formulario.get('conteudo')?.touched">
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('conteudo')?.errors?.['required']  && formulario.get('conteudo')?.touched"
+    >
       O campo "pensamento" é obrigatório
     </div>
 
@@ -25,11 +28,17 @@
       placeholder="Digite uma autoria"
     />
 
-    <div class="mensagem__erro" *ngIf="formulario.get('autoria')?.errors?.['required'] && formulario.get('autoria')?.touched " >
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['required'] && formulario.get('autoria')?.touched "
+    >
       O campo "autoria" é obrigatório
     </div>
 
-    <div class="mensagem__erro" *ngIf="formulario.get('autoria')?.errors?.['minlength']">
+    <div
+      class="mensagem__erro"
+      *ngIf="formulario.get('autoria')?.errors?.['minlength']"
+    >
       O campo "autoria" precisa ter no mínimo 03 caracteres
     </div>
 
@@ -111,7 +120,13 @@
       </div>
     </div>
     <div class="acoes">
-      <button class="botao" (click)="criarPensamento()">Salvar</button>
+      <button
+        [disabled]="!formulario.valid"
+        (click)="criarPensamento()"
+        [ngClass]="habilitarBotao()"
+      >
+        Salvar
+      </button>
       <button routerLink="/listarPensamento" class="botao" (click)="cancelar()">
         Cancelar
       </button>
