@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pensamento } from '../pensamento.interface';
 import { PensamentoService } from '../pensamento.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-criar-pensamento',
@@ -10,22 +11,33 @@ import { Router } from '@angular/router';
 })
 export class CriarPensamentoComponent implements OnInit {
   // Utilizamos abaixo o decorator @input() para avisar que agora este componente vai receber informações do componente pai.
-  pensamento: Pensamento = {
-    conteudo: '',
-    autoria: '',
-    modelo: 'modelo1',
-  };
+
+  formulario!: FormGroup;
 
   // Utilizamos o constructor para injetar o serviço a ser consumido, e ainda injetar as rotas para utilizar nos métodos criarPensamento() e cancelar()
 
-  constructor(private service: PensamentoService, private router: Router) {}
+  constructor(
+    private service: PensamentoService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formulario = this.formBuilder.group({
+      conteudo: ['', [Validators.required]],
+      autoria: [''],
+      modelo: ['Modelo2'],
+    });
+  }
 
   criarPensamento() {
-    this.service.criar(this.pensamento).subscribe();
-    // Relembrando que o subscribe é um método que fica aguardando uma resposta para avisar assim que obver 
-    this.router.navigate(['/listarPensamento']);
+    if (this.formulario.valid) {
+      this.service.criar(this.formulario.value).subscribe();
+      // Relembrando que o subscribe é um método que fica aguardando uma resposta para avisar assim que obver
+      this.router.navigate(['/listarPensamento']);
+    } else {
+      alert('Favor preencher todos os campos!');
+    }
   }
 
   cancelar() {
